@@ -14,7 +14,7 @@ const TagSearch = () => {
         <>
         <h1 className="text-xl text-white">Want to see projects used a specific skill?</h1>
         <div className="text-white flex flex-row justify-start gap-5 my-10 flex-wrap">
-        {Object.keys(skillsRecord).map((skillKey, index) => (
+        {Object.keys(skillsRecord).map((skillKey) => (
             <button key={skillKey} value={skillKey} onClick={skillOnClick}
                 className="rounded-full px-4 py-1 border-2 transition-colors duration-300 border-white hover:bg-white hover:text-neutral-900">
                     {skillsRecord[skillKey].title}
