@@ -1,4 +1,4 @@
 # Front-Page
 * [ ] new Simple Icon tool
-* [ ] use NavLink
-* [ ] about me page (under the tagSearch)
+* [x] use NavLink
+* [x] about me page (under the tagSearch)
