@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "RobotoFlexLatin";
+    font-style: oblique 0deg 10deg;
+    font-weight: 100 1000;
+    font-stretch: 25% 151%;
+    font-display: swap;
+    src:
+        url("./RobotoFlexLatin.woff2")
+        format("woff2 supports variations"),
+        url("./RobotoFlexLatin.woff2")
+        format("woff2-variations"),
+        url("./RobotoFlexLatin.woff2")
+        format("woff2");
+}
+
+@font-face {
+    font-family: "MaterialSymbolsOutlined";
+    font-style: normal;
+    font-weight: 100 700;
+    src:
+        url("./MaterialSymbolsOutlined.woff2")
+        format("woff2 supports variations"),
+        url("./MaterialSymbolsOutlined.woff2")
+        format("woff2-variations"),
+        url("./MaterialSymbolsOutlined.woff2")
+        format("woff2");
+}
+
+@font-face {
+    font-family: "Bitter";
+    font-weight: 100 900;
+    src:
+        url("./Bitter.woff2")
+        format("woff2 supports variations"),
+        url("./Bitter.woff2")
+        format("woff2-variations"),
+        url("./Bitter.woff2")
+        format("woff2");
+}
