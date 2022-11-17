@@ -16,7 +16,7 @@ const LinkWithIcon = (props: LinkWithIconProps) => {
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-[1.5em] m-2">
                 <path d={props.data.icon.svgPath} />
             </svg>
-            <span className={`inline-block leading-tight grow transition-all ease-in-out duration-500 ${storedProject && "opacity-0 text-[0px]"}`}>{props.data.title}</span>
+            <span className={`inline-block leading-tight grow transition-all ease-in-out duration-300 ${storedProject && "opacity-0 text-[0px]"}`}>{props.data.title}</span>
         </a>
     )
 }
