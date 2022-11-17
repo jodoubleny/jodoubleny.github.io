@@ -23,3 +23,8 @@ export type Project = {
     linksArr: ILink[],
     screenShotUrl?: string
 }
+
+export type WhoIAm = {
+    iAm: string,
+    desc: string,
+}

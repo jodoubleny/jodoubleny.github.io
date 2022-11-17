@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 // Redux
 import { useAppSelector, useAppDispatch } from './store/hooks';
@@ -11,6 +11,8 @@ import TagSearch from './components/TagSearch/TagSearch';
 
 import { projectsRecord } from './assets/locale.english';
 import { Project } from './types/types';
+import AboutMe from './components/AboutMe/AboutMe';
+import HorizontalRule from './components/HorizontalRule/HorizontalRule';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -35,7 +37,13 @@ const App = () => {
         <div className="mx-6 my-16 xl:mx-16"><Header /></div>
         <div className="mx-6 my-16 xl:mx-16"><ProjectNav /></div>
         <div className="mx-6 my-16 xl:mx-16">
-          {storedProject ? <ProjectDetail /> : <TagSearch />}
+          {storedProject ? <ProjectDetail /> : 
+          <>
+          <AboutMe />
+          <HorizontalRule className="my-5" title="OR" />
+          <TagSearch />
+          </>
+          }
         </div>
       </div>
     </div>

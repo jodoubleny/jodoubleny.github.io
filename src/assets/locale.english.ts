@@ -1,4 +1,4 @@
-import { ILinkWithSimpleIcon, Project } from '../types/types';
+import { ILinkWithSimpleIcon, Project, WhoIAm } from '../types/types';
 import * as simpleIcon from './simpleIcon';
 import { skillsRecord } from './skillSet';
 
@@ -94,4 +94,15 @@ export const externalLinks: ILinkWithSimpleIcon[] = [
         url: 'mailto:parkqm@gmail.com',
         icon: simpleIcon.gmail,
     },
+]
+
+export const whoIAmArr: WhoIAm[] = [ 
+    {
+        iAm: "a Developer",
+        desc: "blahbl ahblah2sdfadsfds afdsfblahblahblah2sdfad sfdsafd sfblahblahblah2sdfad sfdsafdsf blahblahblah2sdfadsf dsafdsf ah2sdfadsfdsafds fblahblahblah2 sdfadsfdsafd",
+    },
+    {
+        iAm: "a Developer1",
+        desc: "blahb lahblah2sdfadsfds afdsblahblahb lah2s dfadsfdsafdsfblahblahblah2sdf adsfdsafdsfblahblahblah2sdfadsfdsafdsfblahblah ah2sdfadsfdsafdsfblahblahblah2sdfadsfdsafdah2sdfadsf dsafdsfblahblahblah2sdfadsfdsafdblah2sdfadsfdsafdsfblahblahblah2sdfadsfdsafdsff",
+    }
 ]

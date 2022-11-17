@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { skillsRecord } from '../../assets/skillSet';
 
 const TagSearch = () => {
