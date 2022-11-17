@@ -16,11 +16,12 @@ import HorizontalRule from './components/HorizontalRule/HorizontalRule';
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
-  const projectKey: string | undefined = useLocation().pathname.split('/')[2];
   const storedProject = useAppSelector(state => state.storedProject.data);
 
   useEffect(() => {
+    const projectKey = location.pathname.split("/")[2];
     if (projectKey === undefined) {
       if (storedProject !== undefined) {
         dispatch(removeProject());
@@ -29,7 +30,7 @@ const App = () => {
     }
     const project: Project = projectsRecord[projectKey];
     dispatch(storeProject(project));
-  }, [projectKey]);
+  }, [location]);
 
   return (
     <div className="min-w-screen min-h-screen bg-black">
