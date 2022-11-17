@@ -40,9 +40,9 @@ const App = () => {
         <div className="mx-6 my-16 xl:mx-16">
           {storedProject ? <ProjectDetail /> : 
           <>
-          <AboutMe />
-          <HorizontalRule className="my-5" title="OR" />
           <TagSearch />
+          <HorizontalRule className="my-5" title="OR" />
+          <AboutMe />
           </>
           }
         </div>

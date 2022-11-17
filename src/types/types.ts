@@ -26,5 +26,5 @@ export type Project = {
 
 export type WhoIAm = {
     iAm: string,
-    desc: string,
+    desc?: string,
 }

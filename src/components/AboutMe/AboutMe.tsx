@@ -7,14 +7,14 @@ import { WhoIAm } from '../../types/types';
 const AboutMe = () => {
     const [whoIAmIndex, setWhoIAmIndex] = useState(0);
     const [iAm, setIAm] = useState("");
-    const [desc, setDesc] = useState<string>();
-    const [showDesc, setShowDesc] = useState(false);
+    // const [desc, setDesc] = useState<string>();
+    // const [showDesc, setShowDesc] = useState(false);
 
     useDidMountEffect(() => {
         const descString = whoIAmArr[whoIAmIndex].desc;
-        setDesc(descString);
+        // setDesc(descString);
 
-        const timerBase = 300;
+        const timerBase = 200;
         const iAmString = whoIAmArr[whoIAmIndex].iAm;
 
         const typingEffectAsync = async () => {
@@ -35,19 +35,26 @@ const AboutMe = () => {
         }
 
         typingEffectAsync()
-            .then(() => setTimeout(() => setShowDesc(true), timerBase))
+            // .then(() => setTimeout(() => setShowDesc(true), timerBase))
             .then(() => setTimeout(() => {
-                setShowDesc(false);
+                // setShowDesc(false);
                 const newIndex = whoIAmIndex+1;
                 if (newIndex < whoIAmArr.length) setWhoIAmIndex(newIndex);
                 else setWhoIAmIndex(0);
-            }, 2000));
+            }, 5000));
     }, [whoIAmIndex]);
 
     return (
         <div className="text-white">
-            <div className="text-4xl font-bold">I'm <span className="underline">{iAm}</span><span className="animate-blink">|</span></div>
-            <div className={`transition-all duration-500 ${showDesc ? "opacity-100 mt-3" : "leading-[0] opacity-0"}`}>{desc}</div>
+            <div className="text-2xl font-normal mb-7 text-neutral-500">Bangawoyo!</div>
+            <div className="text-4xl font-bold mb-7">I'm Jonny, <span className="underline">{iAm}</span><span className="animate-blink">|</span></div>
+            {/* <div className={`text-neutral-600 transition-all duration-500 ${showDesc ? "opacity-100" : "leading-[0] opacity-0"}`}>{desc}</div> */}
+            <div className="text-neutral-600 leading-loose">
+                I still remember the moment I created my very first website with Microsoft FrontPage when I was young.<br />
+                I was drawn to and fascinated by the early era of web technology from then.<br />
+                Over the years, web technology has significantly changed, but my passion and love for it haven't diminished.<br />
+                I believe the infinite possibility of the web that has a positive impact on our society by bridging the virtual environment and real life.
+            </div>
         </div>
     )
 }

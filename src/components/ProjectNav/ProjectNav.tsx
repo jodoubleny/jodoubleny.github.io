@@ -30,7 +30,7 @@ const ProjectNav = () => {
         <>
         {tag && (
             <div className="flex flex-row justify-between items-baseline mb-5">
-                <div className="text-neutral-800 text-sm">includes <span className="px-1 py-0.5 rounded text-white bg-neutral-800">{skillsRecord[tag].title}</span></div>
+                <div className="text-neutral-600 text-sm">includes <span className="px-1 py-0.5 rounded text-white bg-neutral-600">{skillsRecord[tag].title}</span></div>
                 <span onClick={tagRemoverOnClick} className="text-rose-900 text-xs hover:underline decoration-rose-900 cursor-pointer">remove</span>
             </div>
         )}
