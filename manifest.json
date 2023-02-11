@@ -1,0 +1,16 @@
+{
+  "short_name": "Front-Page",
+  "name": "Front-Page by Jonny Park",
+  "icons": [
+    {
+      "src": "star_logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
