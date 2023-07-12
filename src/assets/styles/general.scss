@@ -1,0 +1,64 @@
+// vars: colours
+$black: #161e22;
+$white: #fdffff;
+$tomato: #ff4f10;
+$dark-gray: #323b3f;
+$gray: #d3ddd7;
+$light-gray: #f6f6f6;
+
+// vars: etc.
+$section-padding: calc(1rem + (env(safe-area-inset-left) / 2) + (env(safe-area-inset-right) / 2));
+$max-width: 1300px;
+$header-height: 5rem;
+
+// timings
+$loading-duration: 1.5s;
+$loading-exit: 1.5s;
+$nav-open: 1s;
+$nav-enter-duration: 0.5s;
+$nav-exit-duration: 0.25s;
+$nav-exit-delay: 0.25s;
+$portfolio-timing: 0.5s;
+
+// mixins
+@mixin display-font() {
+  font-variation-settings: "CRSV" 1, "SHRP" 100;
+}
+
+@mixin flex-center-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin nav-in-transition ($property: all) {
+  transition: $property $nav-enter-duration ease-in-out;
+}
+
+@mixin nav-out-transition ($property: all) {
+  transition: $property $nav-exit-delay $nav-exit-duration ease-in-out;
+}
+
+@mixin nav-bar-in ($property, $value) {
+  #{$property}: $value;
+  @include nav-in-transition($property);
+}
+
+@mixin nav-bar-out ($property, $value) {
+  #{$property}: $value;
+  @include nav-out-transition($property);
+}
+
+@mixin portfolio-transition ($property: all) {
+  transition: $property $portfolio-timing linear;
+}
+
+@mixin no-delay () {
+  transition-delay: 0s !important;
+  animation-delay: 0s !important;
+}
+
+// cubic bezier curves
+$power-in: cubic-bezier(0.1, 0.65, 0.35, 0.9);
+$power-in-out: cubic-bezier(0.65, 0.1, 0.35, 0.9);
+$power-out: cubic-bezier(0.65, 0.1, 0.9, 0.35);

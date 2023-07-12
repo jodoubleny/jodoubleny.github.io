@@ -1,0 +1,7 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  width: calc(100% - ($section-padding * 2));
+  max-width: #{$max-width};
+  margin: 0 auto;
+}

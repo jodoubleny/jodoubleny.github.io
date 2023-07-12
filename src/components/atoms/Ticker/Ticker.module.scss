@@ -1,0 +1,37 @@
+$target-after-margin: 1em;
+
+span.wrapper {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative; // for a bug on Chrome
+
+  @keyframes ticker {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(calc(-100% - $target-after-margin));
+    }
+  }
+
+  &.hover {
+    span.target {     
+      animation: ticker 1s ease-in-out var(--ticker-repeat);
+    }
+
+    &.infinite {
+      span.target {     
+        animation: ticker 1.25s linear var(--ticker-repeat);
+      }
+    }
+  }
+}
+
+span.target { 
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    margin-left: $target-after-margin;
+    white-space: nowrap;
+  }
+}

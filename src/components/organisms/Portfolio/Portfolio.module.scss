@@ -1,0 +1,23 @@
+@import "../../../assets/styles/general.scss";
+
+section.portfolio {
+  background-color: $white;
+  @include portfolio-transition(background-color);
+
+  &.active {
+    background-color: $black;
+  }
+}
+
+h1.h1-portfolio {
+  @include portfolio-transition(color);
+}
+
+div.item-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  $gap: 10rem;
+  gap: $gap;
+  margin: $gap 0;
+}

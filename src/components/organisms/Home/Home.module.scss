@@ -1,0 +1,228 @@
+@import "../../../assets/styles/general.scss";
+
+$padding-top: 8rem;
+
+section.home {
+  flex-direction: column;
+  color: $black;
+  background-color: $black;
+  padding-top: $padding-top;
+}
+
+// hero starts
+div.hero-wrapper {
+  width: 100%;
+  padding-bottom: 5rem;
+}
+
+div.hero-container {
+  width: calc(100% - ($section-padding * 2));
+  max-width: $max-width;
+  min-height: calc(100vh - ($padding-top));
+  margin: 0 auto;
+  color: $white;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 3fr 2fr;
+  grid-template-areas:
+    "hero hero"
+    "hero-text down-arrow";
+  position: relative;
+
+  // down-arrow horizontal bar
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-width: $max-width;
+    height: 1px;
+    bottom: 2rem;
+    left: 0;
+    background-color: $gray;
+  }
+}
+div.hero-text-wrapper {
+  grid-area: hero-text;
+}
+
+div.hero-text-container {
+  color: $gray;
+  max-width: 100%;
+  font-size: 1.3rem;
+  font-weight: 200;
+  line-height: 1.35em;
+
+  & > span.hero-text {
+    display: inline-block;
+    overflow: hidden;
+  
+    & > span {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+  }
+
+  &.active {
+    & > span.hero-text {
+      & > span {
+        transform: translateY(0);
+        transition: transform 0.35s ease-out;
+      }
+    }
+  }
+
+  &.initial {
+    & > span.hero-text {
+      & > span { // to achieve instant initialization
+        @include no-delay;
+      }
+    }
+  }
+}
+
+div.down-arrow {
+  position: relative;
+  z-index: 2;
+  grid-area: down-arrow;
+  justify-self: end;
+  align-self: end;
+  background-color: $black;
+  padding: 0 2rem;
+  margin-right: 5rem;
+  margin-bottom: -1.5rem;
+}
+// hero ends
+// greeting starts
+div.greeting-container {
+  background-color: $white;
+
+  & div.marquee {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $gray;
+    text-transform: uppercase;
+
+    & .text {
+      white-space: nowrap;
+      margin-right: 1em;
+    }
+  }
+
+  & > div.greetings {
+    width: 100%;
+    text-align: center;
+    margin: 15rem 0;
+    padding: 0 5vw;
+    font-size: 5rem;
+    font-weight: 600;
+
+    & span {
+      display: inline-block;
+    }
+  }
+}
+
+$duration: 0.25s;
+
+div.coded-container {
+  display: inline-block;
+  position: relative;
+  -webkit-perspective: 9999px;
+  perspective: 9999px;
+
+  & > div.coded-wrapper {
+    transform: rotateX(0deg);
+    transition: transform $duration linear $duration;
+    color: $tomato;
+  }
+
+  & > div.cod-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: $tomato;
+    border: 3px solid $tomato;
+    border-radius: 9999px;
+    transform: rotateX(-90deg);
+    transition: transform $duration linear 0s;
+    margin-top: 4px;
+
+    & > .cod {
+      mix-blend-mode: screen;
+      transform: translate(-55%, 10%) scale(1.7);
+    }
+  }
+
+  &.active {
+    & > div.coded-wrapper {
+      transform: rotateX(90deg);
+      transition-delay: 0s;
+    }
+
+    & > div.cod-wrapper {
+      transform: rotateX(0deg);
+      transition-delay: $duration;
+    }
+  }
+}
+// greeting ends
+
+@media only screen and (max-width: 800px){
+  div.intro-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  div.hero-text-container {
+    max-width: 100%;
+    font-size: 1.55rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  div.hero-container {
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas:
+      "hero"
+      "hero-text"
+      "down-arrow";
+  }
+
+  div.hero-text-container {
+    max-width: 80%;
+    padding-left: 0;
+  }
+  
+  div.down-arrow {
+    margin-right: 3rem;
+  }
+
+  div.greeting-container {
+    & .marquee {
+      font-size: 0.75rem;
+    }
+
+    & > div.greetings {
+      font-size: 3rem;
+    }    
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div.hero-text-container {
+    max-width: 95%;
+    font-size: 1.25rem;
+  }
+
+  div.down-arrow {
+    margin-right: 2rem;
+    justify-self: center;
+    margin-right: 0;
+    transform: scale(0.85);
+  }
+}

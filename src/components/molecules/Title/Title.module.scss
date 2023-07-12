@@ -1,0 +1,72 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  opacity: 1;
+  transition: opacity 0.75s ease-in-out;
+
+  &.scrolled {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
+div.cod-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid $black;
+  position: relative;
+  $width: 8rem;
+  width: $width;
+  height: 3rem;
+  pointer-events: none;
+  user-select: none;
+  border-color: $white;
+
+  & > .cod {
+    position: absolute;
+    width: $width;
+    height: fit-content;
+    transform: translate(-55%, 10%) scale(1.7);
+    filter:grayscale(1);
+  }
+}
+
+div.title {
+  font-size: 1.2em;
+  font-weight: 100;
+
+  & > span.full-name {
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  div.cod-wrapper {
+    $width: 7rem;
+    width: $width;
+    height: 2.5rem;
+    
+    & > .cod {
+      width: $width;
+    }
+  }
+  
+  div.title {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  div.cod-wrapper {
+    width: 2.5rem;
+
+    & > .cod {
+      transform: translate(-105%, 10%) scale(1.7);
+    }
+  }
+}

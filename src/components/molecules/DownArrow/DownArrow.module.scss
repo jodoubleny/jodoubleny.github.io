@@ -1,0 +1,70 @@
+@import "../../../assets/styles/general.scss";
+
+$point-color: $white;
+
+div.container {
+  width: fit-content;
+  display: grid;
+  grid-template: "one";
+  justify-content: center;
+  align-items: center;
+}
+
+div.circle-text-wrapper {
+  grid-area: one;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  & > svg.circle-text {
+    width: 8rem;
+    height: 8rem;
+
+    & text.circle-text-text {
+      fill: $point-color;
+      font-size: 10px;
+    }
+  }
+}
+
+div.arrow-svg-wrapper {
+  grid-area: one;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  background-color: $point-color;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  justify-self: center;
+
+  & > svg.down-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    stroke-linecap: round;
+
+    @keyframes falling-slowly {
+      0% {
+        top: -10%;
+      }
+      19% {
+        top: 5rem;
+        animation-timing-function: steps(1, end);
+      }
+      20% {
+        top: -100%;
+        animation-timing-function: ease-out;
+      }
+      80%, 100% {
+        top: -10%;
+      }
+    }
+
+    animation: falling-slowly 2.5s ease-in infinite;
+  }
+}

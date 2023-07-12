@@ -1,0 +1,171 @@
+@import "../../../assets/styles/general.scss";
+
+$padding: 2.5rem;
+$border: 1px solid $gray;
+$border-radius: 0.4rem;
+$arrow-size: var(--arrow-size);
+
+div.container {
+  width: 100%;
+  height: fit-content;
+  color: $black;
+  display: grid;
+  grid-template-columns: 2.5fr 3.5fr 4fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "title image desc";
+  gap: $padding;
+  // vars
+  --arrow-size: 5rem;
+}
+
+div.title-image-container {
+  width: calc($max-width / 2);
+  display: flex;
+  flex-direction: row;
+  gap: $padding;
+}
+
+div.title-container {
+  grid-area: title;
+  @include portfolio-transition(color);
+
+  & > h2.portfolio {
+    @include display-font;
+    font-size: 1.6em;
+    line-height: 1.4em;
+  }
+
+  & > span.sub-title {
+    color: $dark-gray;
+    font-size: 1.1em;
+    font-weight: 400;
+    @include portfolio-transition(color);
+  }
+
+  &.active {
+    color: $white;
+
+    & > span.sub-title {
+      color: $gray;
+    }
+  }
+}
+
+div.image-wrapper {
+  grid-area: image;
+  height: fit-content;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  & > div.no-img {
+    @keyframes no-signal {
+      from {
+        background-size: 100% 100%;
+      }
+      to {
+        background-size: 200% 200%;
+      }
+    }
+
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    // no-signal: https://www.sitepoint.com/community/t/creating-an-animated-tv-static-effect-using-just-a-gradient/378261
+    background: repeating-radial-gradient(circle at 17% 32%, $dark-gray, $black 0.00085px);
+    animation: no-signal 5s linear infinite;
+  }
+}
+
+div.desc-container {
+  grid-area: desc;
+  color: $dark-gray;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 4rem;
+  grid-template-areas:
+    "arrow desc"
+    "arrow buttons";
+  gap: $padding;
+  @include portfolio-transition(color);
+
+  &.active {
+    color: $gray;
+  }
+
+  & div.arrow-wrapper {
+    grid-area: arrow;
+    width: $arrow-size;
+    height: $arrow-size;
+    border: 1px solid $gray;
+    border-radius: $border-radius;
+    flex-shrink: 0;
+    @include portfolio-transition(border);
+
+    &.active {
+      border: 1px solid $dark-gray;
+    }
+  
+    & svg.arrow {
+      margin: 1rem;
+
+      & polyline, & line, & polygon, & path {
+        @include portfolio-transition;
+      }
+    }
+  }
+
+  & div.desc-wrapper {
+    grid-area: desc;
+  }
+
+  & div.link-buttons-container {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    border: 1px solid $tomato;
+    border-radius: $border-radius;
+    overflow: hidden;
+  
+    & > div.link-button-wrapper {
+      width: 100%;
+      border-right: 1px solid $tomato;
+      -webkit-mask-image: radial-gradient(white, black); // to remove the weird part of border-radius after over-flow:hidden 
+  
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  div.container {
+    grid-template-columns: 2fr 3fr 5fr;
+    --arrow-size: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  div.container {
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "title desc"
+      "image desc";
+    --arrow-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  div.container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "title"
+      "image"
+      "desc";
+  }
+}

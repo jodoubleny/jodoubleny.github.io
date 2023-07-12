@@ -1,0 +1,40 @@
+$fill: var(--fill);
+$stroke: var(--stroke);
+$stroke-width: var(--stroke-width);
+$line-length: var(--line-length);
+$duration: var(--duration);
+$delay: var(--delay);
+$repeat: var(--repeat);
+
+svg.default {
+  & polyline, & line, & polygon, & path {
+    fill: $fill;
+    stroke: $stroke;
+    stroke-width: $stroke-width;
+  }
+}
+
+svg.animation-ready {
+  & polyline, & line, & polygon, & path {
+    stroke-dasharray: $line-length;
+    stroke-dashoffset: $line-length;
+  }
+}
+
+svg.playing {
+  & polyline, & line, & polygon, & path {
+    @keyframes draw-stroke {
+      0% {
+        stroke-dashoffset: $line-length;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    animation: draw-stroke calc($duration * 2) linear $delay $repeat forwards;
+  }
+}

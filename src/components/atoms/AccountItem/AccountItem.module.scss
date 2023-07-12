@@ -1,0 +1,63 @@
+@import "../../../assets/styles/general.scss";
+
+$height: 6rem;
+$margin: 1.5rem;
+
+a.anchor {
+  display: inline-block;
+  width: 100%;
+  height: $height;
+  position: relative;
+  z-index: 1;
+  border: 1px solid $gray;
+  border-radius: $height;
+  font-size: 1.2rem;
+  transition: all 0.25s ease-in-out;
+
+  & > span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: calc($height - ($margin * 2));
+    height: calc($height - ($margin * 2));
+    top: 50%;
+    right: $margin;
+    transform-origin: center center;
+    transform: translateY(-50%) scale(0);
+    border-radius: 100%;
+    background-color: $tomato;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &:hover {
+    border: 1px solid $tomato;
+
+    svg.icon {
+      transform: translateY(-50%) scale(0);
+      border-radius: 100%;
+    }
+
+    &::after {
+      transform: translateY(-50%) scale(0.5);
+    }
+  }
+}
+
+svg.icon {
+  position: absolute;
+  width: calc($height - ($margin * 2));
+  height: calc($height - ($margin * 2));
+  top: 50%;
+  right: $margin;
+  transform-origin: center center;
+  transform: translateY(-50%);
+  transition: all 0.35s ease-in-out;
+}

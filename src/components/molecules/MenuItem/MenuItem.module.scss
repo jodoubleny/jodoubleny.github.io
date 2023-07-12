@@ -1,0 +1,105 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  width: 100%;
+  font-size: 5rem;
+  padding: 1rem 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  & > a {
+  display: inline-flex;
+    transform: translateY(100%);
+  }
+
+  &.open {
+    border-bottom: 1px solid $white;
+    transition: border-bottom $nav-enter-duration ease-in-out $nav-enter-duration;
+
+    & > a {
+      @keyframes menu-item-in {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      animation: menu-item-in 0.4s ease-in-out $nav-enter-duration forwards;
+    }
+  }
+
+  &.closed {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom #{$nav-enter-duration} ease-in-out;
+
+    & > a {
+      @keyframes menu-item-out {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(100%);
+        }
+      }
+
+      animation: menu-item-out 0.25s ease-in-out forwards;
+    }
+  }
+}
+
+div.icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  overflow: hidden;
+
+  & > div.icon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &.open {
+      transform: translate(0, 0);
+      transition: transform $nav-enter-duration ease-in-out;
+    }
+
+    &.closed {
+      transform: translate(-100%, -100%);
+      transition: transform $nav-enter-duration ease-in-out;
+    }
+
+    & > svg {
+      position: absolute;
+      fill: #{$white};
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  div.menu-item {
+    font-size: 4rem;
+    padding: 0.75rem 0;
+  }
+
+  div.icon-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  div.menu-item {
+    font-size: 3rem;
+    padding: 0.5rem 0;
+  }
+
+  div.icon-wrapper {
+    width: 2rem;
+    height: 2rem;
+  }
+}

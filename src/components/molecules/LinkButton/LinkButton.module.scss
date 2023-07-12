@@ -1,0 +1,19 @@
+@import "../../../assets/styles/general.scss";
+
+a.container {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.iconText {
+  $gap: 1rem;
+  gap: calc($gap/2);
+  padding: $gap;
+  font-size: 1.5rem;
+}
+
+.below {
+  position: absolute;
+}

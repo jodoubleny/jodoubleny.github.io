@@ -1,0 +1,106 @@
+@import "../../../assets/styles/general.scss";
+
+footer {
+  width: 100%;
+  position: relative;
+}
+
+div.container {
+  width: calc(100% - ($section-padding * 2));
+  max-width: #{$max-width};
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: $header-height 0;
+}
+
+div.slogan {
+  margin-top: 1em;
+  font-size: min(10vw, 8rem);
+  line-height: 1.2em;
+
+  & > span {
+    display: inline-block;
+  }
+}
+
+div.local {
+  margin: 7rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  font-size: 3rem;
+  line-height: 1em;
+
+  & > span {
+    display: inline-block;
+
+    & > span.divider {
+      @keyframes ticking {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      animation: ticking 1s steps(1, end) infinite;
+    }
+  }
+}
+
+div.local-svg-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  background-color: $white;
+  border-radius: 100%;
+  overflow: hidden;
+
+  & > svg.cn-tower {
+    position: absolute;
+    width: 150%;
+    top: 10%;
+    left: 52%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  div.local {
+    font-size: 1.5rem;
+  }
+  div.local-svg-wrapper {
+    width: 3rem;
+    height: 3rem;
+
+    & > svg.cn-tower {
+      left: 54%;
+    }
+  }
+}
+
+div.accounts-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+@media screen and (max-width: 800px) {
+  div.accounts-container {
+    flex-direction: column;
+  }
+}
+
+div.the-last {
+  width: 100%;
+  text-align: right;
+  margin: 4rem 0;
+  color: $dark-gray;
+  font-size: 1.1rem;
+}

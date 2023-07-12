@@ -1,0 +1,19 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > div.icon-wrapper {
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+  }
+
+  & > div.text {
+    font-size: 0.8em;
+  }
+}

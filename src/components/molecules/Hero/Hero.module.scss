@@ -1,0 +1,50 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  width: 100%;
+  max-height: 32rem;
+  color: $white;
+  background-color: $black;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+div.catchy-container {
+  display: flex;
+  flex-direction: column;
+  @include display-font;
+  font-size: min(23vw, 17rem);
+  font-weight: 800;
+  line-height: 0.9em;
+
+  & div.row {
+    overflow: hidden;
+  }
+
+  & span.catchy {
+    overflow: hidden;
+
+    & > span {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+  }
+
+  &.active {
+    & span.catchy {
+      & > span {
+        transform: translateY(0);
+        transition: transform 0.5s ease-in;
+      }
+    }
+  }
+
+  &.initial {
+    & span.catchy {
+      & > span { // to achieve instant initialization
+        @include no-delay;
+      }
+    }
+  }
+}

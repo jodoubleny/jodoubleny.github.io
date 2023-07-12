@@ -1,0 +1,52 @@
+@import "../../../assets/styles/general.scss";
+
+div.container {
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  color: $white;
+  background-color: $dark-gray;
+  @include flex-center-center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+div.marquee {
+  font-size: clamp(1.5rem, 7vw, 3rem);
+  font-weight: 600;
+  color: $white;
+  text-transform: lowercase;
+  @include display-font;
+
+  & .text {
+    white-space: nowrap;
+    margin-right: 0.75em;
+  }
+}
+
+div.cod-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.35;
+  margin-top: 5rem;
+}
+
+div.cod-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid $white;
+  position: relative;
+  width: 7rem;
+  height: 2.5rem;
+  pointer-events: none;
+  user-select: none;
+
+  & > .cod {
+    position: absolute;
+    width: 7rem;
+    height: fit-content;
+    transform: translate(-55%, 10%) scale(1.7);
+    filter:grayscale(1);
+  }
+}
