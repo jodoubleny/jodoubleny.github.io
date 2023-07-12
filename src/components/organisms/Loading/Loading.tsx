@@ -2,7 +2,6 @@ import { useEffect, useRef,  } from "react";
 import css from "./Loading.module.scss";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import scss from "../../../assets/styles/export";
-import SpanSplitter from "../../atoms/SpanSplitter/SpanSplitter";
 import useGsapRef from "../../../hooks/useGsapRef";
 import gsap from "gsap";
 import Cod from "../../atoms/Cod/Cod";

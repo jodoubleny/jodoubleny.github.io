@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import Images from "../../../assets/images/Images";
 import useGsapRef from "../../../hooks/useGsapRef";
-import Container from "../../atoms/Container/Container";
-import Section from "../../atoms/Section/Section";
 import SpanSplitter from "../../atoms/SpanSplitter/SpanSplitter";
 import css from "./Middle.module.scss";
 import gsap from "gsap";

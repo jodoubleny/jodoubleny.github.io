@@ -1,4 +1,4 @@
-import { useRef, Children, isValidElement, cloneElement, CSSProperties, useState, useEffect, ReactNode, ReactElement, PropsWithChildren, forwardRef } from "react";
+import { useRef, Children, isValidElement, cloneElement, CSSProperties, useState, useEffect, ReactElement, PropsWithChildren, forwardRef } from "react";
 import css from "./SvgHelper.module.scss";
 
 type Props = PropsWithChildren & {

@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import SvgGroups from "../../../assets/images/SvgGroups";
 import scss from "../../../assets/styles/export";
 import SvgHelper from "../../atoms/SvgHelper/SvgHelper";
